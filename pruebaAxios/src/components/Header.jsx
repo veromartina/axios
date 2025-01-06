@@ -21,8 +21,7 @@ const Header = ({ setName, setGender, setStatus, gender, status, inputValue, set
     setInputValue(e.target.value);
   };
 
-  
-  
+  // header con titulo y filtros
   return (
     <VStack>
       <Heading>Lista de Personajes </Heading>
