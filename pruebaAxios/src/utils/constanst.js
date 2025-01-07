@@ -1,0 +1,51 @@
+export const courses = [
+    {
+      id: 1,
+      name: "Curso de JavaScript para Principiantes",
+      price: 29.99,
+      description: "Aprende los conceptos básicos de JavaScript y desarrolla habilidades esenciales para programar.",
+      image: "https://example.com/images/javascript-course.jpg",
+    },
+    {
+      id: 2,
+      name: "React.js desde Cero",
+      price: 49.99,
+      description: "Domina React.js y aprende a crear aplicaciones web modernas y dinámicas con este curso práctico.",
+      image: "https://example.com/images/react-course.jpg",
+    },
+    {
+      id: 3,
+      name: "Backend con Node.js",
+      price: 59.99,
+      description: "Descubre cómo construir potentes APIs y servicios backend utilizando Node.js y Express.",
+      image: "https://example.com/images/nodejs-course.jpg",
+    },
+    {
+      id: 4,
+      name: "Introducción a Python",
+      price: 39.99,
+      description: "Explora Python, uno de los lenguajes de programación más populares, con este curso interactivo.",
+      image: "https://example.com/images/python-course.jpg",
+    },
+    {
+      id: 5,
+      name: "Bases de Datos SQL",
+      price: 45.99,
+      description: "Aprende a diseñar, gestionar y consultar bases de datos relacionales con SQL.",
+      image: "https://example.com/images/sql-course.jpg",
+    },
+    {
+      id: 6,
+      name: "Fundamentos de HTML y CSS",
+      price: 19.99,
+      description: "Domina las bases del desarrollo web con este curso de HTML y CSS para principiantes.",
+      image: "https://example.com/images/html-css-course.jpg",
+    },
+    {
+      id: 7,
+      name: "Curso de Desarrollo Full Stack",
+      price: 99.99,
+      description: "Conviértete en un desarrollador full stack con conocimientos en frontend, backend y bases de datos.",
+      image: "https://example.com/images/fullstack-course.jpg",
+    },
+  ];
