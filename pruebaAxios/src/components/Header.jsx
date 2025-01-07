@@ -29,7 +29,7 @@ const Header = ({ setName, setGender, setStatus, gender, status, inputValue, set
         <Input
           pr="4.5rem"
           type={"text"}
-          placeholder="ingrese un nombre"
+          placeholder="ingrese nombre del personaje"
           onChange={handleInputChange}  // Actualizamos el valor del input temporalmente
           value={inputValue}  // Este estado es el que controla el input, pero solo cuando el usuario escribe
         />
@@ -41,24 +41,24 @@ const Header = ({ setName, setGender, setStatus, gender, status, inputValue, set
         </InputRightElement>
       </InputGroup>
       <Select
-        placeholder="Select option"
+        placeholder="Elija genero"
         onChange={(e) => {setGender(e.target.value)}}
         value={gender}>
-        <option value="">all</option>
-        <option value="female">Female</option>
-        <option value="male">Male</option>
-        <option value="genderless">Genderless</option>
-        <option value="unknown">Unknown</option>
+        <option value="">Todos</option>
+        <option value="female">Mujer</option>
+        <option value="male">Hombre</option>
+        <option value="genderless">Sin genero</option>
+        <option value="unknown">Desconocido</option>
       </Select>
 
       <Select
-        placeholder="Select option"
+        placeholder="Elija Estado"
         onChange={(e) => {setStatus(e.target.value)}}
         value={status}>
-        <option value="">All</option>
-        <option value="alive">Alive</option>
-        <option value="dead">Dead</option>
-        <option value="unknown">Unknown</option>
+        <option value="">Todos</option>
+        <option value="alive">Vivo</option>
+        <option value="dead">Muerto</option>
+        <option value="unknown">Desconocido</option>
       </Select>
     </VStack>
   );

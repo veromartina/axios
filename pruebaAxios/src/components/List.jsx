@@ -4,9 +4,9 @@ import Characters from "./Characters"
 const List = ({data}) => {
 
     return (
-        <VStack>
+        <VStack  >
         {data.map((p) => (
-            <Characters
+            <Characters 
             key={p.id}
             name={p.name}
             status={p.status}
