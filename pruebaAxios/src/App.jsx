@@ -1,12 +1,12 @@
 import List from "./components/List"
-
+import { CartProvider } from "./context/CartContext"
 
 function App() {
 
   return (
-  <>
-    <List/>
-  </>
+    <CartProvider>  {/*envuelvo list para traer la funcion para agregar al carrito */}
+   <List/>
+   </CartProvider>
   )
 }
 
