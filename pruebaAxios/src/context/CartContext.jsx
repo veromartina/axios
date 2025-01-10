@@ -1,28 +1,38 @@
-import { useState, createContext  } from "react"
 
-export const CartContext = createContext()
+import { useState, createContext } from "react";
 
-//CartProvider, es el proveedor de nuestra informacion
-export const CartProvider = ({children}) =>{
-//cart:carrito donde ponemos y sacamos cosas
-    const[cart, setCart ] = useState([]) //estado del carrito
+// Crea el contexto para el carrito
+export const CartContext = createContext();
 
-    //funcion para agregar al carrito, le paso product(todo)por si necesito toda la info
-    const add = (product) => {
-        setCart((prev)=>[...prev, product])
-        console.log(cart)
-    } 
+// CartProvider es el proveedor que envuelve a los componentes hijos
+export const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState([]); // Estado para almacenar los productos del carrito
 
-    //funcion para eliminar del carrito. solo paso el id para eliminarlo completamente
-    const remove = (id) =>{
-        setCart((prev)=>prev.filter((item)=>item.id !==id))
-    }
-    return ( 
-        <CartContext.Provider value={{add, remove, cart}}>{children}
+  // Función para agregar un producto al carrito, sin permitir duplicados
+  const add = (product) => {
+    setCart((prev) => {
+      // Verificamos si el producto ya existe en el carrito (comparamos por id)
+      const productExists = prev.some((item) => item.id === product.id);
+
+      if (productExists) {
+        // Si el producto ya está en el carrito, no lo agregamos de nuevo
+        return prev;
+      } else {
+        // Si el producto no existe, lo agregamos al carrito
+        return [...prev, product];
+      }
+    });
+  };
+
+  // Función para eliminar un producto del carrito por su id
+  const remove = (id) => {
+    setCart((prev) => prev.filter((item) => item.id !== id)); // Filtra los productos y elimina el que coincide con el id
+  };
+
+  // Proporcionamos el contexto con las funciones y el estado del carrito
+  return (
+    <CartContext.Provider value={{ add, remove, cart }}>
+      {children}
     </CartContext.Provider>
-    );    {/*se lo paso en el value para poder acceder desde cualquier componente q tengamos */}
-    
-   
+  );
 };
-
-

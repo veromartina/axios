@@ -1,7 +1,7 @@
 export const products = [
     {
       id: 1,
-      name: "Mesa de comedor moderno .",
+      name: "Mesa de comedor moderno",
       price: 29.99,
       description: "",
       image: "https://disegnimobili.com.ar/wp-content/uploads/2020/03/00AEE73A-9325-41FD-9025-17F2181A7620_1_105_c.jpeg",
@@ -29,7 +29,7 @@ export const products = [
     },
     {
       id: 5,
-      name: "Vanitori modernoL",
+      name: "Vanitori moderno",
       price: 45.99,
       description: "",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQCQSE3fBl_-p9qSwCVEEVwiiVsxmGiq0ZWA&s",
