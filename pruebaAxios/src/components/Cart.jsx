@@ -1,61 +1,23 @@
-import { Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, useDisclosure } from '@chakra-ui/react'
+import { Box, Button, Drawer, DrawerBody, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Image, Stack, Text, useDisclosure } from '@chakra-ui/react'
+
 import React from 'react'
-import { useState } from 'react';
+import { useState, useContext} from 'react';
+import { CartContext } from '../context/CartContext';
 
 export const Cart = () => {
   const { isOpen, onOpen, onClose} = useDisclosure();  //se importa de chackra esta funcion para lograr el Drawer
   const [placement] = useState("right"); //placement:desde donde se va a desplazar(se abre desde la derecha). es un hook que se hace desde usestate y se recibe por parametro
+  const { cart, remove } = useContext(CartContext)  // me traigo la info de cart para mostarla en el carrito
 
 
-  return (
-   <>
-   <Button colorScheme='teal' onClick={onOpen} position="fixed" botton="20px" right="20px">Ver carrito</Button>
-
-   <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
-    <DrawerOverlay/> {/*cuando hago click afuera se cierra el drawer */}
-    <DrawerContent> {/*contenido del drawer */}
-      <DrawerHeader borderBottomWidth="1px">Carrito de compras</DrawerHeader> {/*contenido del header(titulo)del drawer */}
-    </DrawerContent>  
-    <DrawerBody></DrawerBody>{/*donde muestro los productos que vienen de CartContext(hook) van a estar en cart(estado)*/}
-   </Drawer>
-   </>
-
-  )
-}
-
-export default Cart
-
-
-
-/*import { useContext, useState } from "react";
-import {
-  Box,
-  Button,
-  Stack,
-  Text,
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerHeader,
-  DrawerBody,
-  DrawerFooter,
-  useDisclosure,
-} from "@chakra-ui/react";
-import { CartContext } from "../context/CartContext";
-
-const Cart = () => {
-  const { cart, remove } = useContext(CartContext);
-  const { isOpen, onOpen, onClose } = useDisclosure(); // Control del Drawer
-  const [placement] = useState("right"); // Posición del Drawer (puedes cambiarla)
-
-  return (
+  return  (
     <>
-      {/* Botón para abrir el Drawer 
+      {/* Botón para abrir el Drawer */}
       <Button colorScheme="teal" onClick={onOpen} position="fixed" bottom="20px" right="20px">
-        Ver Carrito ({cart.length})
+        Ver Carrito ({cart.length}) {/*cart,length me muestra la cantidad de productosen el boton */}
       </Button>
 
-      {/* Drawer del carrito 
+      {/* Drawer del carrito */}
       <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
         <DrawerContent>
@@ -65,22 +27,23 @@ const Cart = () => {
               <Text>No hay productos en el carrito.</Text>
             ) : (
               <Stack spacing={4}>
-                {cart.map((course) => (
+                {cart.map((product) => (
                   <Box
-                    key={course.id}
+                    key={product.id}
                     p={4}
                     border="1px"
                     borderColor="gray.200"
                     borderRadius="md"
                   >
                     <Text fontSize="lg" fontWeight="bold">
-                      {course.name}
+                      {product.name}
                     </Text>
-                    <Text>Precio: ${course.price}</Text>
+                    <Text>Precio: ${product.price}</Text>
+                    <Image src={product.image} alt={product.name}/>
                     <Button
                       mt={2}
                       colorScheme="red"
-                      onClick={() => remove(course.id)}
+                      onClick={() => remove(product.id)}
                     >
                       Eliminar
                     </Button>
@@ -98,7 +61,8 @@ const Cart = () => {
       </Drawer>
     </>
   );
-};
+}
 
-export default Cart;
-*/
+export default Cart
+
+

@@ -8,9 +8,9 @@ import { CartProvider } from "./context/CartContext.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
   <ChakraProvider>
-    
+  <CartProvider>
       <App/>
-     
+    </CartProvider>
   </ChakraProvider>
   </StrictMode>
 );

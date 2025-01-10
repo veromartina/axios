@@ -1,5 +1,5 @@
 import { Button, Card, CardBody, CardFooter, CardHeader, Heading, SimpleGrid, Image, Text} from "@chakra-ui/react"
-import { courses } from "../utils/constanst"
+import { products } from "../utils/constanst"
 import { useContext } from "react"
 import { CartContext } from "../context/CartContext"
 
@@ -9,18 +9,19 @@ export const List = () => {
 
   return (
     <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
-     {courses.map((course)=>(
-      <Card key={course.id}>
+     {products.map((product)=>(
+      <Card key={product.id}>
     <CardHeader>
-      <Heading size='md'> {course.name}</Heading>
+      <Heading size='md'> {product.name}</Heading>
     </CardHeader>
     <CardBody>
-      <Text>{course.description}</Text>
-      <Image src={course.image} alt={course.name}/>
-      <Text>${course.price}</Text>
+      <Text>{product.description}</Text>
+      <Image src={product.image} alt={product.name}/>
+      <Text>${product.price}</Text>
     </CardBody>
     <CardFooter>
-      <Button onClick={()=>add(course)}>Agregar al carrito</Button> {/*add: declarado arriba  */}
+      <Button onClick={()=>add(product)}>Agregar al carrito</Button>
+       {/*add: declarado arriba  */}
     </CardFooter>
   </Card>
    ))}
