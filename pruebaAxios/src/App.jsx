@@ -1,11 +1,13 @@
-import { Axios } from './components/Axios'
 
+import { VStack } from '@chakra-ui/react'
+import { Form } from './components/Form'
 
 function App() {
-  
+
   return (
-    <Axios/>
-   
+    <VStack>
+      <Form />
+    </VStack>
   )
 }
 
